@@ -1,6 +1,6 @@
 
 
-<master>
+<x-master title="Formulário de Noticias">
     <div class="container pt-5">
             @if (session()->has('mensagem'))
                 <div class="alert alert-sucess">
@@ -39,8 +39,9 @@
                 @endforeach
         </tbody>
         </table>
+        {{$noticias->links()}}
     </div>
-</master>        
+</x-master>        
 
 
 

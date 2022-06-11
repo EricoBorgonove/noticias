@@ -15,7 +15,7 @@ class NoticiaController extends Controller
     $noticias = Noticia::all();
 
     return view('noticias.index', [
-        'noticias' => Noticia::where('status',Noticia::STATUS_ATIVO)->get()
+        'noticias' => Noticia::where('status',Noticia::STATUS_ATIVO)->paginate(4)
     ]);
     return view('noticias.indexinativo', [
         'noticias' => Noticia::where('status',Noticia::STATUS_INATIVO)->get()
@@ -30,7 +30,8 @@ public function create()
 public function store(NoticiaRequest $request)
 {
     $dados = $request->all();
-    $dados['data_publicacao'] = Carbon::createFromFormat("d/m/Y", $dados['data_publicacao'])->format("Y-m-d");
+
+  
     $request->imagem->storeAs('public', $request->imagem->getClientOriginalName());
     $dados['imagem'] = '/storage/' . $request->imagem->getClientOriginalName();
     Noticia::create($dados);
@@ -49,7 +50,7 @@ public function update($noticia, NoticiaRequest $request)
 {
     $noticia = Noticia::findOrFail($noticia);
     $dados = $request->all();
-    $dados['data_publicacao'] = Carbon::createFromFormat("d/m/Y", $dados['data_publicacao'])->format("Y-m-d");
+    
     if ($request->imagem) {
         $request->imagem->storeAs('public', $request->imagem->getClientOriginalName());
         $dados['imagem'] = '/storage/' . $request->imagem->getClientOriginalName();

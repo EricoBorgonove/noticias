@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Noticia extends Model
 {
@@ -29,5 +30,9 @@ class Noticia extends Model
         // } else if ($this->status == "I"){
         //     return "Inativo";
         // }
+    }
+    public function setDataPublicacaoAttribute($value)
+    {
+        $this->attributes['data_publicacao'] = Carbon::createFromFormat("d/m/Y", $value)->format("Y-m-d");
     }
 }

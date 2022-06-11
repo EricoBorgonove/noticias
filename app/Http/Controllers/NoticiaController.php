@@ -21,7 +21,7 @@ class NoticiaController extends Controller
         'noticias' => Noticia::where('status',Noticia::STATUS_INATIVO)->get()
     ]);
 }
-
+//
 public function create()
 {
     return view('noticias.create');

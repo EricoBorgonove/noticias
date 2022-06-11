@@ -9,6 +9,7 @@
             @endif
 
         <a href="/noticias/create" class="btn btn-primary"> Nova Notícia </a>
+        <a href="/noticias/indexinativo" class="btn btn-primary"> Inativos </a>
         <table class="table table-striped">
         <thead>
             <tr>

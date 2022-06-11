@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('noticias', [App\Http\Controllers\NoticiaController::class, 'index']);
-Route::get('noticias/indexinativo', [App\Http\Controllers\NoticiaController::class, 'index']);
+Route::get('noticias/indexinativo', [App\Http\Controllers\NoticiaController::class, 'indexinativo']);
 Route::get('noticias/create', [App\Http\Controllers\NoticiaController::class, 'create']);
 Route::post('noticias', [App\Http\Controllers\NoticiaController::class, 'store']); 
 Route::get('noticias/{noticia}/edit', [App\Http\Controllers\NoticiaController::class, 'edit']);
